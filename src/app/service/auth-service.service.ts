@@ -6,7 +6,9 @@ import {AngularFireAuth} from '@angular/fire/compat/auth';
 })
 export class AuthServiceService {
 
-  constructor(public afAuth:AngularFireAuth) { }
+  constructor(public afAuth:AngularFireAuth) { 
+    
+  }
 
 
   SignUp(email:any,password:any){
@@ -22,7 +24,7 @@ export class AuthServiceService {
   LogIn(email:any,password:any){
     return this.afAuth.signInWithEmailAndPassword(email,password)
     .then((result)=>{
-      localStorage.setItem('user',JSON.stringify(result.user))
+        
     })
     .catch((err)=>{
       console.log("error");
