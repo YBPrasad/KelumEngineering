@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 import { Router } from '@angular/router';
 import { Stock } from '../stock.model';
+import  {AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
 
-  constructor(private angularFireStore:AngularFirestore,private router:Router) { }
 
-  createItem(item:Stock){
-    return new Promise<any>((resolve,reject)=>{
-      this.angularFireStore
-        .collection("stock")
-        .add(item)
-        .then(response => { 
-          this.router.navigate(['dashboard']);
-          console.log(response) },
-         error => reject(error));
-        
-    })
+  dbPath='stock';
+  stockRef:AngularFireList<Stock>;
+  constructor(private db:AngularFireDatabase,private router:Router) {
+    this.stockRef=db.list(this.dbPath);
   }
+
+  createStock(item:Stock){
+    return this.stockRef.push(item);
+  }
+  getAllStock():AngularFireList<Stock>{
+    return this.stockRef;
+  }
+
+  
 }
