@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit,User {
 
   login(){
     this.authSer.LogIn(this.email,this.password).then((result)=>{
+        localStorage.setItem('username',JSON.stringify(this.email));
         this.router.navigate(['/dashboard']);
     }).catch((err)=>{
         window.alert("Invalid Details");
