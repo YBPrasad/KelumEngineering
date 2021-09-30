@@ -26,11 +26,14 @@ export class AddnewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(formatDate(this.date, 'yyyy-MM-dd', 'en'));
+    console.log(formatDate(this.date, 'yyyy-MM-dd', 'en-US'));
   }
 
   onSubmit(){
-    this.stockSer.createItem(this.userForm.value);
+    this.stockSer.createStock(this.userForm.value)
+    .then(()=>{
+      this.router.navigate(['/dashboard/addnew']);
+    })
   }
 
 

@@ -1,5 +1,5 @@
 export class Stock {
-    "id":string;
+    "key":string;
     "name":string;
     "quantity":number;
     "rackNo":number;
