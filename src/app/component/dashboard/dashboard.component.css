@@ -17,6 +17,7 @@
 
 .head{
     padding: 10px;
+    
 }
 
 .comName{
@@ -24,4 +25,8 @@
     font-size: 30px;
     padding: 3px;
     
+}
+
+.req{
+    border-bottom: 1px solid royalblue;
 }

@@ -18,6 +18,7 @@ export class AddnewComponent implements OnInit {
   constructor(private stockSer:StockService,private router:Router,private formBuilder:FormBuilder) { 
     this.userForm=this.formBuilder.group({
       name:[''],
+      code:[''],
       rackNo:[''],
       quantity:[''],
       price:[''],
