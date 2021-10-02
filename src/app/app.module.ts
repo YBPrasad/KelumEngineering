@@ -17,6 +17,7 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
 import { StockComponent } from './component/stock/stock.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     // NgMaterialModule,
     MatTableModule,
     MatPaginatorModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    Ng2SearchPipeModule
 
     
   ],
