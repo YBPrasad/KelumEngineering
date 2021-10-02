@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   user:any;
+  public date=formatDate(new Date(),'yyyy-MM-dd', 'en-US');
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -16,7 +18,6 @@ export class DashboardComponent implements OnInit {
     if(this.user==null){
       this.router.navigate(['']);
     }
-
   }
 
   logout(){
