@@ -34,6 +34,7 @@ const ELEMENT_DATA: UserElement[] = [
 export class StockComponent implements OnInit{
 
   Items:any=[];
+  searchTxt:string="";
 
   displayedColumns: string[] = ['No','key', 'name', 'rackNo','quantity','price'];
   dataSource:any=null;

@@ -18,3 +18,10 @@
 .head{
     padding: 10px;
 }
+
+.comName{
+    color: red;
+    font-size: 30px;
+    padding: 3px;
+    
+}

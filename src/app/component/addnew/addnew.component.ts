@@ -21,18 +21,19 @@ export class AddnewComponent implements OnInit {
       rackNo:[''],
       quantity:[''],
       price:[''],
-      date:this.date
+      date:formatDate(this.date, 'yyyy-MM-dd', 'en-US')
     })
   }
 
   ngOnInit(): void {
-    console.log(formatDate(this.date, 'yyyy-MM-dd', 'en-US'));
+    console.log(this.date);
   }
 
   onSubmit(){
     this.stockSer.createStock(this.userForm.value)
     .then(()=>{
-      this.router.navigate(['/dashboard/addnew']);
+      this.router.navigate(['/dashboard/stock']);
+
     })
   }
 
