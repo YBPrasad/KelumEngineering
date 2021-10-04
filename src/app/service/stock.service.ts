@@ -11,8 +11,11 @@ export class StockService {
 
   dbPath='stock';
   stockRef:AngularFireList<Stock>;
+  stockRefOne:AngularFireList<Stock>;
+
   constructor(private db:AngularFireDatabase,private router:Router) {
     this.stockRef=db.list(this.dbPath);
+    this.stockRefOne=db.list(this.dbPath);
   }
 
   createStock(item:Stock){
@@ -20,6 +23,15 @@ export class StockService {
   }
   getAllStock():AngularFireList<Stock>{
     return this.stockRef;
+  }
+
+  updateBySale(key:any,value:any){
+    return this.stockRef.update(key,value);
+  }
+
+  getOneItem(key:any){
+    this.stockRefOne=this.db.list(this.dbPath+'/'+key);
+    return this.stockRefOne.valueChanges();
   }
 
   

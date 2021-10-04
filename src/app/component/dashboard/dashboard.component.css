@@ -12,7 +12,7 @@
 }
 
 .container-fluid{
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 .head{
@@ -30,3 +30,4 @@
 .req{
     border-bottom: 1px solid royalblue;
 }
+

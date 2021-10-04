@@ -18,6 +18,7 @@ import { StockComponent } from './component/stock/stock.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SaleComponent } from './component/sale/sale.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DefaultComponent,
     AddnewComponent,
     StockComponent,
+    SaleComponent,
   ],
   imports: [
     BrowserModule,
