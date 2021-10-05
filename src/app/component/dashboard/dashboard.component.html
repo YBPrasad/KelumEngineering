@@ -18,19 +18,19 @@
         <div class="col-md-2">
             <ul class="nav flex-column">
                 <li class="nav-item req">
-                  <a routerLink="/dashboard" class="nav-link" aria-current="page" href="#">Dashboard</a>
+                  <a routerLink="/dashboard" class="nav-link" routerLinkActive="home" [routerLinkActiveOptions]="{exact: true}" aria-current="page" href="#">Dashboard</a>
                 </li>
                 <li class="nav-item req">
-                  <a routerLink="/dashboard/stock" class="nav-link" href="#">Stock</a>
+                  <a routerLink="/dashboard/stock" class="nav-link" routerLinkActive="stock" [routerLinkActiveOptions]="{exact: true}" href="#">Stock</a>
                 </li>
                 <li class="nav-item req">
-                  <a routerLink="/dashboard/addnew"  class="nav-link" href="#">Add New Item</a>
+                  <a routerLink="/dashboard/addnew"  class="nav-link" routerLinkActive="addnew" [routerLinkActiveOptions]="{exact: true}" href="#">Add New Item</a>
                 </li>
                 <li class="nav-item req">
-                  <a routerLink="/dashboard/sale" class="nav-link" href="#">Sale Item</a>
+                  <a routerLink="/dashboard/sale" class="nav-link" routerLinkActive="sale" [routerLinkActiveOptions]="{exact: true}" href="#">Sale Item</a>
                 </li>
                 <li class="nav-item">
-                  <a routerLink="/dashboard/edit" class="nav-link" href="#">Order List</a>
+                  <a routerLink="/dashboard/edit" class="nav-link" routerLinkActive="edit" [routerLinkActiveOptions]="{exact: true}" href="#">Order List</a>
                 </li>
                 
               </ul>
