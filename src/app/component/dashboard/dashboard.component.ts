@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   user:any;
+  url:any;
   public date=formatDate(new Date(),'yyyy-MM-dd', 'en-US');
   constructor(private router:Router) { }
 
@@ -18,11 +19,16 @@ export class DashboardComponent implements OnInit {
     if(this.user==null){
       this.router.navigate(['']);
     }
+
+    this.url=this.router.url;
+    console.log(this.url)
   }
 
   logout(){
     localStorage.removeItem('username');
     this.router.navigate(['']);
   }
+
+  
 
 }

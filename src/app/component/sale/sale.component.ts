@@ -16,6 +16,7 @@ export class SaleComponent implements OnInit {
   i:number=1;
   item:any=[];
   cQty:any;
+  listLen:number=0
   constructor(private sale:SaleService,private stockSer:StockService,private router:Router) { }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class SaleComponent implements OnInit {
 
   getList(){
     this.saleList=this.sale.getItemList();
-    console.log(this.saleList.length);
+    this.listLen=this.saleList.length
   }
 
  updateStock(){
@@ -34,6 +35,13 @@ export class SaleComponent implements OnInit {
        
      });
    })
+   this.router.navigate(['/dashboard/stock']);
+ }
+
+ exitStock(){
+  this.saleList=[]
+  this.router.navigate(['/dashboard/stock']);
+
  }
 
 }
