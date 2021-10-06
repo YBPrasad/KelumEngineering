@@ -1,5 +1,10 @@
 table{
     width: 100%;
+    
+}
+
+.tablediv{
+    height: 60vh;
 }
 
 .search{
