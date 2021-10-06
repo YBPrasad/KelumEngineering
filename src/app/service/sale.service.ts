@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { Stock } from '../stock.model';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +10,15 @@ export class SaleService {
 
   orderList:any=[]
   i:number=0;
-  constructor() { }
+  item:any;
+  date:any=new Date();;
+  
+
+  dbPath='sale'
+  saleRef:AngularFireList<any>;
+  constructor(private db:AngularFireDatabase) {
+    this.saleRef=db.list(this.dbPath);
+   }
 
   addItemList(item:any){
     
@@ -18,5 +29,17 @@ export class SaleService {
 
   getItemList(){
     return this.orderList;
+  }
+
+  addNewSale(code:any,name:any,qty:any){
+    this.item={
+      code:code,
+      name:name,
+      quantity:qty,
+      date:formatDate(this.date, 'yyyy-MM-dd', 'en-US')
+    }
+    this.date=formatDate(this.date, 'yyyy-MM-dd', 'en-US')
+    this.saleRef=this.db.list(this.dbPath+"/"+this.date)
+    return this.saleRef.push(this.item);
   }
 }

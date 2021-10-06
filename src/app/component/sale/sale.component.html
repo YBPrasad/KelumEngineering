@@ -1,6 +1,9 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-6">
+        <span class="warining" *ngIf="listLen<1">Nothing to sale details. If you done sales please selects the 
+            sales item from stock table
+        </span>
         <table class="table" *ngIf="listLen>0">
             <thead>
                 <tr>

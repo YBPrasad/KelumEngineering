@@ -4,7 +4,6 @@ import { StockService } from 'src/app/service/stock.service';
 import {map} from 'rxjs/operators'
 import { Stock } from 'src/app/stock.model';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-sale',
   templateUrl: './sale.component.html',
@@ -17,23 +16,31 @@ export class SaleComponent implements OnInit {
   item:any=[];
   cQty:any;
   listLen:number=0
-  constructor(private sale:SaleService,private stockSer:StockService,private router:Router) { }
+  oneItem:any;
+  date:any;
+  constructor(private saleSer:SaleService,private stockSer:StockService,private router:Router) { }
 
   ngOnInit(): void {
     this.getList();
   }
 
   getList(){
-    this.saleList=this.sale.getItemList();
+    this.saleList=this.saleSer.getItemList();
     this.listLen=this.saleList.length
   }
 
  updateStock(){
    this.saleList.forEach((value:any)=>{
+    
      
      this.stockSer.updateBySale(value.key,{quantity:value.quantity-1}).then(()=>{
        
      });
+     this.saleSer.addNewSale(value.code,value.name,value.quantity).then(()=>{
+       console.log("success sale")
+     })
+     
+
    })
    this.router.navigate(['/dashboard/stock']);
  }
