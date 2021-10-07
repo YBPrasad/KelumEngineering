@@ -41,6 +41,14 @@ export class StockComponent implements OnInit{
   displayedColumns: string[] = ['No','key', 'name', 'rackNo','quantity','price'];
   dataSource:any=null;
 
+  uKey:any;
+  uQty:any;
+  public uPrice:any;
+  public isShow:boolean=false;
+
+  newQty:any;
+  newPrice:any;
+
   constructor(private stockSer:StockService,private sale:SaleService){}
 
   ngOnInit(): void {
@@ -75,6 +83,23 @@ export class StockComponent implements OnInit{
     }
     this.sale.addItemList(this.item);
 
+  }
+
+  recItem(key:any,quantity:any,price:any){
+    this.isShow=true;
+    this.uKey=key;
+    this.uQty=quantity;
+    this.newPrice=price;
+  }
+
+  updateItem(){
+    this.stockSer.updateBySale(this.uKey,{
+      price:this.newPrice,
+      quantity:this.newQty
+    }).then(()=>{
+      this.isShow=false;
+      this.getAll();
+    })
   }
   
 }
