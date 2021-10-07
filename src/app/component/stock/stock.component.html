@@ -39,11 +39,22 @@
       <td>{{item.date}}</td>
       <td >
           <button class="btn btn-success btn-sm" (click)="addItem(item.key,item.code,item.name,item.quantity)" data-toggle="modal" data-target="#exampleModalLong"  style="margin-right:2px;">Sale</button>
-          <button class="btn btn-primary btn-sm" data-toggle="modal">Receive</button>
+          <button class="btn btn-primary btn-sm" (click)="recItem(item.key,item.quantity,item.price)" data-toggle="modal" >Receive</button>
       </td>
     </tr>
   </tbody>
 
 </table>
 </div>
+<br>
+<div class="row updateForm">
+  <div class="col-md-6"></div>
+  <div class="col-md-6" *ngIf="isShow">
+    <form action="">
+      <input type="text" placeholder="Enter Quantity" name="newQty" [(ngModel)]="newQty">
+      <input type="text" value={{newPrice}} name="newPrice" [(ngModel)]="newPrice">
+      <button (click)="updateItem()">save</button>
+    </form>
+  </div>
 
+</div>

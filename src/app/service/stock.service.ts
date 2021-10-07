@@ -34,5 +34,6 @@ export class StockService {
     return this.stockRefOne.valueChanges();
   }
 
+
   
 }
