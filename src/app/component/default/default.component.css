@@ -12,3 +12,23 @@
     background-size: cover;
     background-repeat: no-repeat; 
 }
+
+
+@media screen and (max-width:1000px){
+    .box .title{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .box{
+        
+        margin: 10px;
+    }
+    .box .title{
+        font-size: 30px;
+    }
+    .img{
+        display: none;
+    }
+}
