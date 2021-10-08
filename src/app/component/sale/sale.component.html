@@ -1,9 +1,36 @@
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-6">
-        <span class="warining" *ngIf="listLen<1">Nothing to sale details. If you done sales please selects the 
+    <div class="col-md-6"  style="text-align: center;" *ngIf="listLen<1">
+        <span class="warining" >Nothing to sale details. If you done sales please selects the 
             sales item from stock table
         </span>
+        <br>
+        <form action="">
+            <input class="form-control" type="text" name="searchDate" [(ngModel)]="searchdate" placeholder="Enter date to search sale like YYYY-MM-DD ">
+            <br><button class="btn btn-warning" (click)="getItem()">search</button>
+        </form>
+        <div class="overflow-auto tablediv">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Item Code</th>
+                    <th>Item Name</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of searchSaleList;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.code}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="overflow-auto tablediv">
         <table class="table" *ngIf="listLen>0">
             <thead>
                 <tr>
@@ -22,11 +49,13 @@
                 </tr>
             </tbody>
         </table>
+        <button class="btn btn-sm btn-success" (click)="updateStock()" *ngIf="listLen>0">Sale</button>
+        <button class="btn btn-sm btn-success" (click)="exitStock()" *ngIf="listLen>0">Exit</button>
+        </div>
     </div>
     <div class="col-md-3"></div>
 
 </div>
 
 
-<button class="btn btn-sm btn-success" (click)="updateStock()" *ngIf="listLen>0">Sale</button>
-<button class="btn btn-sm btn-success" (click)="exitStock()" *ngIf="listLen>0">Exit</button>
+

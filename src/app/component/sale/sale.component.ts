@@ -18,6 +18,8 @@ export class SaleComponent implements OnInit {
   listLen:number=0
   oneItem:any;
   date:any;
+  searchdate:any;
+  searchSaleList:any=[]
   constructor(private saleSer:SaleService,private stockSer:StockService,private router:Router) { }
 
   ngOnInit(): void {
@@ -50,5 +52,14 @@ export class SaleComponent implements OnInit {
   this.router.navigate(['/dashboard/stock']);
 
  }
+
+ getItem(){
+   this.saleSer.getOneItem(this.searchdate).subscribe((value:any)=>{
+     this.searchSaleList=value;
+    console.log(this.searchSaleList);
+   })
+ }
+
+
 
 }

@@ -42,4 +42,9 @@ export class SaleService {
     this.saleRef=this.db.list(this.dbPath+"/"+this.date)
     return this.saleRef.push(this.item);
   }
+
+  getOneItem(date:any){
+    this.saleRef=this.db.list(this.dbPath+"/"+date);
+    return this.saleRef.valueChanges();
+  }
 }
