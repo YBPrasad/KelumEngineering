@@ -16,8 +16,12 @@ export class SaleService {
 
   dbPath='sale'
   saleRef:AngularFireList<any>;
+  saleOneRef:AngularFireList<any>;
+
   constructor(private db:AngularFireDatabase) {
     this.saleRef=db.list(this.dbPath);
+    this.saleOneRef=db.list(this.dbPath);
+
    }
 
   addItemList(item:any){
@@ -44,7 +48,11 @@ export class SaleService {
   }
 
   getOneItem(date:any){
-    this.saleRef=this.db.list(this.dbPath+"/"+date);
+    this.saleOneRef=this.db.list(this.dbPath+"/"+date);
+    return this.saleOneRef.valueChanges();
+  }
+
+  getAll(){
     return this.saleRef.valueChanges();
   }
 }

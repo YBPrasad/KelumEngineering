@@ -5,6 +5,13 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.box .sectitle{
+    color: white;
+    font-size: 50px;
+    margin-top: 50px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .img{
     background-image: url("../../../assets/images/two.jpg");
     height: 400px;
