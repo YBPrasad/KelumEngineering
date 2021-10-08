@@ -4,3 +4,11 @@
 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.img{
+    background-image: url("../../../assets/images/two.jpg");
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}

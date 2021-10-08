@@ -51,8 +51,8 @@
   <div class="col-md-6"></div>
   <div class="col-md-6" *ngIf="isShow">
     <form action="">
-      <input type="text" placeholder="Enter Quantity" name="newQty" [(ngModel)]="newQty">
-      <input type="text" value={{newPrice}} name="newPrice" [(ngModel)]="newPrice">
+      <input type="number" placeholder="Enter Quantity" name="newQty" [(ngModel)]="newQty">
+      <input type="number" value={{newPrice}} name="newPrice" [(ngModel)]="newPrice">
       <button (click)="updateItem()">save</button>
     </form>
   </div>
