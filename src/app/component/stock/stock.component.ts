@@ -42,7 +42,7 @@ export class StockComponent implements OnInit{
   dataSource:any=null;
 
   uKey:any;
-  uQty:any;
+  uQty:number=0;
   public uPrice:any;
   public isShow:boolean=false;
 
@@ -95,7 +95,7 @@ export class StockComponent implements OnInit{
   updateItem(){
     this.stockSer.updateBySale(this.uKey,{
       price:this.newPrice,
-      quantity:this.newQty
+      quantity:this.uQty+this.newQty
     }).then(()=>{
       this.isShow=false;
       this.getAll();
