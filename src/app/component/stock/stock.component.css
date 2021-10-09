@@ -10,6 +10,7 @@ table{
 .search{
     background:none;
     border: 1px solid black;
+    border-radius: 50px;
 }
 
 @media screen and (max-width:450px) {
