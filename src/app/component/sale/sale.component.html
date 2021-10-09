@@ -6,7 +6,7 @@
         </span>
         <br>
         <form action="">
-            <input class="form-control" type="text" name="searchDate" [(ngModel)]="searchdate" placeholder="Enter date to search sale like YYYY-MM-DD ">
+            <input class="form-control" type="date" name="searchDate" [(ngModel)]="searchdate" placeholder="Enter date to search sale like YYYY-MM-DD ">
             <br><button class="btn btn-warning" (click)="getItem()">search</button>
         </form>
         <div class="overflow-auto tablediv">

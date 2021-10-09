@@ -45,6 +45,8 @@ export class StockComponent implements OnInit{
   uQty:number=0;
   public uPrice:any;
   public isShow:boolean=false;
+  public showDelete:boolean=false;
+  deleteKey:any;
 
   newQty:any;
   newPrice:any;
@@ -101,7 +103,23 @@ export class StockComponent implements OnInit{
       this.getAll();
     })
   }
+
+  show(key:any){
+    this.showDelete=true;
+    this.deleteKey=key;
+  }
   
+  noDelete(){
+    this.showDelete=false;
+    this.deleteKey="";
+  }
+
+  yesDelete(){
+    this.stockSer.removeItem(this.deleteKey).then(()=>{
+      this.getAll();
+      this.showDelete=false;
+    })
+  }
 }
 
 

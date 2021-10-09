@@ -14,6 +14,7 @@ export class AddnewComponent implements OnInit {
 
   public userForm:FormGroup;
   private date=new Date();
+  public showErr:boolean=false;
 
   constructor(private stockSer:StockService,private router:Router,private formBuilder:FormBuilder) { 
     this.userForm=this.formBuilder.group({
@@ -31,11 +32,18 @@ export class AddnewComponent implements OnInit {
   }
 
   onSubmit(){
-    this.stockSer.createStock(this.userForm.value)
-    .then(()=>{
-      this.router.navigate(['/dashboard/stock']);
-
-    })
+    if(this.userForm.value.name=="" || this.userForm.value.code=="" || this.userForm.value.rackNo==""
+    || this.userForm.value.quantity=="" || this.userForm.value.price==""){
+      this.showErr=true;
+    }
+    else{
+      this.stockSer.createStock(this.userForm.value)
+      .then(()=>{
+        this.router.navigate(['/dashboard/stock']);
+  
+      })
+    }
+    
   }
 
 
