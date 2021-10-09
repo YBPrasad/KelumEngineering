@@ -18,10 +18,14 @@ export class SaleComponent implements OnInit {
   listLen:number=0
   oneItem:any;
   date:any;
+  searchdate:any;
+  searchSaleList:any=[]
+  public show:boolean=false
   constructor(private saleSer:SaleService,private stockSer:StockService,private router:Router) { }
 
   ngOnInit(): void {
     this.getList();
+    
   }
 
   getList(){
@@ -37,18 +41,26 @@ export class SaleComponent implements OnInit {
        
      });
      this.saleSer.addNewSale(value.code,value.name,value.quantity).then(()=>{
+      this.show=true;
        console.log("success sale")
      })
      
 
    })
-   this.router.navigate(['/dashboard/stock']);
  }
 
- exitStock(){
+
+ getItem(){
+   this.saleSer.getOneItem(this.searchdate).subscribe((value:any)=>{
+     this.searchSaleList=value;
+    console.log(this.searchSaleList);
+   })
+ }
+
+ exit(){
   this.saleList=[]
-  this.router.navigate(['/dashboard/stock']);
 
  }
+
 
 }

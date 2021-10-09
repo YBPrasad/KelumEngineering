@@ -5,7 +5,15 @@
   <div class="col-md-4">
 
   </div>
-  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div *ngIf="showDelete" style="display: inline-block;">
+      Are you sure Delete this item? 
+      
+        <button class="btn btn-sm btn-outline-danger" (click)="yesDelete()">Yes</button>&nbsp;
+        <button class="btn btn-sm btn-outline-warning" (click)="noDelete()">No</button>
+      
+    </div>
+  </div>
 
 </div>
 
@@ -40,6 +48,7 @@
       <td >
           <button class="btn btn-success btn-sm" (click)="addItem(item.key,item.code,item.name,item.quantity)" data-toggle="modal" data-target="#exampleModalLong"  style="margin-right:2px;">Sale</button>
           <button class="btn btn-primary btn-sm" (click)="recItem(item.key,item.quantity,item.price)" data-toggle="modal" >Receive</button>
+          <button class="btn btn-danger btn-sm" (click)="show(item.key)">Delete</button>
       </td>
     </tr>
   </tbody>
@@ -51,8 +60,8 @@
   <div class="col-md-6"></div>
   <div class="col-md-6" *ngIf="isShow">
     <form action="">
-      <input type="text" placeholder="Enter Quantity" name="newQty" [(ngModel)]="newQty">
-      <input type="text" value={{newPrice}} name="newPrice" [(ngModel)]="newPrice">
+      <input type="number" placeholder="Enter Quantity" name="newQty" [(ngModel)]="newQty">
+      <input type="number" value={{newPrice}} name="newPrice" [(ngModel)]="newPrice">
       <button (click)="updateItem()">save</button>
     </form>
   </div>

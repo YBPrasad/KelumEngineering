@@ -4,3 +4,38 @@
 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.box .sectitle{
+    color: white;
+    font-size: 50px;
+    margin-top: 50px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.img{
+    background-image: url("../../../assets/images/two.jpg");
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+
+@media screen and (max-width:1000px){
+    .box .title{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .box{
+        
+        margin: 10px;
+    }
+    .box .title{
+        font-size: 30px;
+    }
+    .img{
+        display: none;
+    }
+}

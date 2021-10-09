@@ -42,9 +42,11 @@ export class StockComponent implements OnInit{
   dataSource:any=null;
 
   uKey:any;
-  uQty:any;
+  uQty:number=0;
   public uPrice:any;
   public isShow:boolean=false;
+  public showDelete:boolean=false;
+  deleteKey:any;
 
   newQty:any;
   newPrice:any;
@@ -95,13 +97,29 @@ export class StockComponent implements OnInit{
   updateItem(){
     this.stockSer.updateBySale(this.uKey,{
       price:this.newPrice,
-      quantity:this.newQty
+      quantity:this.uQty+this.newQty
     }).then(()=>{
       this.isShow=false;
       this.getAll();
     })
   }
+
+  show(key:any){
+    this.showDelete=true;
+    this.deleteKey=key;
+  }
   
+  noDelete(){
+    this.showDelete=false;
+    this.deleteKey="";
+  }
+
+  yesDelete(){
+    this.stockSer.removeItem(this.deleteKey).then(()=>{
+      this.getAll();
+      this.showDelete=false;
+    })
+  }
 }
 
 

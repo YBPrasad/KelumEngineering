@@ -34,6 +34,10 @@ export class StockService {
     return this.stockRefOne.valueChanges();
   }
 
+  removeItem(key:any){
+    return this.stockRef.remove(key);
+  }
+
 
   
 }
